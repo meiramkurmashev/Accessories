@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Добавить товар";
+}
+<form method="post" action="/objects/complete">
+    @{
+        //  Layout = null;//для представления не используется мастер-страница
+    }
+    <h3>Добавить товар</h3>
+    <table>
+
+      
+                <script>
+                    function update(e, targetId) {
+                        let target = document.getElementById(targetId);
+                        let ob = e.options[e.selectedIndex]
+                        target.value = `${ob.text}`
+                    }</script>
+
+        <tr><td><b><label>Название</label></b></td><td><input type="text" name="name" required></td></tr>
+        <tr><td><b><label>Описание</label></b></td><td><input type="text" name="about" required></td></tr>
+        <tr><td><b><label>Цена</label></b></td><td><input type="text" name="price" required></td></tr>
+                
+               
+                    @foreach (var wag in ViewBag.listAttributes)
+                    {
+
+                    <tr><td>
+                            <b><label>@wag.Name</label></b>
+                        </td>
+                        <td>
+                            <input required name="@wag.Id" />
+                        </td>
+                    </tr>
+                    }
+    </table>
+  
+    <button type="submit" value="">Добавить</button>
+    <button type="button" onclick="javascript:history.go(-1);">Назад</button>
+
+
+
+</form>

@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Создать категорию";
+}
+<form method="post" action="/categories/addCategory">
+    @{
+        //  Layout = null;//для представления не используется мастер-страница
+    }
+    <h3>Создать категорию</h3>
+    <table>
+        <tr><td><b><label>Имя категории</label></b></td><td><input name=name type="text" required></td></tr>
+
+    </table>
+    @{
+
+    }
+    <button type="submit" value="">Добавить</button>
+    <button type="button" onclick="javascript:history.go(-1);">Назад</button>
+
+
+
+</form>

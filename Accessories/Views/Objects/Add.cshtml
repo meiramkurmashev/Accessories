@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Добавить товар";
+}
+<form method="post" action="/objects/addObject">
+    @{
+        //  Layout = null;//для представления не используется мастер-страница
+    }
+    <h3>Добавить товар</h3>
+    <table>
+        
+        <tr>
+            <td><b><label>Категория</label></b></td>
+            <td>
+                <script>
+                    function update(e, targetId) {
+                        let target = document.getElementById(targetId);
+                        let ob = e.options[e.selectedIndex]
+                        target.value = `${ob.text}`
+                    }</script>
+
+
+                <select required id="a1" name="type" onchange="update(event.target, 'b1')">
+                    <option value='' selected>Выберите категорию</option>
+                    @foreach (var wag in ViewBag.listCategories)
+                    {
+
+
+                        <option value="@wag.Id">@wag.Name</option>
+
+
+                    }
+                </select>
+            </td>
+        </tr>
+       
+       
+
+    </table>
+    @{
+
+    }
+    <button type="submit" value="">Добавить</button>
+    <button type="button" onclick="javascript:history.go(-1);">Назад</button>
+
+
+
+</form>

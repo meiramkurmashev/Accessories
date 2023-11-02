@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Создать категорию";
+}
+<form method="post" action="/attributes/AddAttributeComplete">
+    @{
+        //  Layout = null;//для представления не используется мастер-страница
+    }<input type="hidden" name="category_id" value=@ViewBag.Id_category>
+    <h3>Добавить аттрибут</h3>
+    <table>
+        <tr><td><b><label>Имя аттрибута</label></b></td><td><input name=name type="text" required></td></tr>
+
+    </table>
+    @{
+
+    }
+    <button type="submit" value="">Добавить</button>
+    <button type="button" onclick="javascript:history.go(-1);">Назад</button>
+
+
+
+</form>

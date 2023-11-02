@@ -1,0 +1,63 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+
+        a {
+            text-decoration: none; /* Отменяем подчеркивание у ссылки */
+        }
+
+        .link a {
+            position: absolute;
+            width: 100%;
+            height: 1.5em;
+            display: block;
+        }
+
+        .context-menu {
+            display: none;
+            position: absolute;
+            z-index: 10;
+        }
+
+        .context-menu--active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Категории</h1>
+
+
+
+
+
+    <table id="myTable2" border="1" style="position: relative;">
+
+
+
+
+        @foreach (var wag in ViewBag.listAttributes)
+        {
+            <tr style=" height: 85px; text-decoration: none; ">
+                <td><a style="text-decoration: none; color:black" class="link" href="/Categories/Change?id=@wag.Id" id=@wag.Id>@wag.Name</a></td>
+
+            </tr>
+
+        }
+
+
+        </>
+    </table>
+    <br />
+
+
+    
+
+    <button type="submit" value="" onclick="location.href='/Attributes/Add?cat_id=@ViewBag.Id'">Добавить аттрибут</button>
+    
+</body>
+</html>
