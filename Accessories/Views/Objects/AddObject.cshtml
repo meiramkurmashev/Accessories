@@ -15,25 +15,34 @@
                         let ob = e.options[e.selectedIndex]
                         target.value = `${ob.text}`
                     }</script>
-
+                    <input hidden value=@ViewBag.type name="category_id">
         <tr><td><b><label>Название</label></b></td><td><input type="text" name="name" required></td></tr>
         <tr><td><b><label>Описание</label></b></td><td><input type="text" name="about" required></td></tr>
         <tr><td><b><label>Цена</label></b></td><td><input type="text" name="price" required></td></tr>
-                
-               
-                    @foreach (var wag in ViewBag.listAttributes)
-                    {
+        @{
+            int col = 1;
+        }
 
-                    <tr><td>
-                            <b><label>@wag.Name</label></b>
-                        </td>
-                        <td>
-                            <input required name="@wag.Id" />
-                        </td>
-                    </tr>
-                    }
+        @foreach (var wag in ViewBag.listAttributes)
+        {
+
+
+
+            <tr><td>
+                    <input hidden name="@wag.Id" value="@wag.Id">
+                    <b><label>@wag.Name</label></b>
+                </td>
+                <td>
+                    <input required name="attribute_name+@col" />
+                </td>
+            </tr>
+            
+               col = col +1 ;
+            
+        }
+
     </table>
-  
+    
     <button type="submit" value="">Добавить</button>
     <button type="button" onclick="javascript:history.go(-1);">Назад</button>
 

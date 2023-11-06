@@ -33,8 +33,9 @@ namespace Accessories.Controllers
             return View();
 
         }
-        public IActionResult Privacy()
+        public ActionResult Objects()
         {
+
             return View();
         }
 

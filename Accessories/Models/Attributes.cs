@@ -10,9 +10,9 @@ namespace Accessories.Models
 {
     public class Attributes
     {
-        
 
-string connStr = "server=localhost;user=root;database=accessories;password=root;";
+        int id2;
+        string connStr = "server=localhost;user=root;database=accessories;password=root;";
         public void Att(ref List<Three> listAttributes, int id_)
         {
 
@@ -26,6 +26,7 @@ string connStr = "server=localhost;user=root;database=accessories;password=root;
                             ATTRIBUTE_NAME,
                             CATEGORY_ID
                             FROM attributes where category_Id ="+id_+" ";
+        
             // объект для выполнения SQL-запроса
             MySql.Data.MySqlClient.MySqlCommand command = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
             // выполняем запрос и получаем ответ
@@ -42,6 +43,8 @@ string connStr = "server=localhost;user=root;database=accessories;password=root;
 
                 }
             }
+            
+           
 
 
             conn.Close();
