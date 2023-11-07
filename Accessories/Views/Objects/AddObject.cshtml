@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Добавить товар";
 }
-<form method="post" action="/objects/complete">
+<form method="post" action="/objects/complete"> 
     @{
         //  Layout = null;//для представления не используется мастер-страница
     }
@@ -19,9 +19,7 @@
         <tr><td><b><label>Название</label></b></td><td><input type="text" name="name" required></td></tr>
         <tr><td><b><label>Описание</label></b></td><td><input type="text" name="about" required></td></tr>
         <tr><td><b><label>Цена</label></b></td><td><input type="text" name="price" required></td></tr>
-        @{
-            int col = 1;
-        }
+        <input hidden required name="col" value="@ViewBag.Col" />
 
         @foreach (var wag in ViewBag.listAttributes)
         {
@@ -29,15 +27,16 @@
 
 
             <tr><td>
-                    <input hidden name="@wag.Id" value="@wag.Id">
+                    
                     <b><label>@wag.Name</label></b>
                 </td>
                 <td>
-                    <input required name="attribute_name+@col" />
+                    <input hidden required name="att_id" value="@wag.Id" />
+                    <input required name="att_name" />
                 </td>
             </tr>
             
-               col = col +1 ;
+              
             
         }
 

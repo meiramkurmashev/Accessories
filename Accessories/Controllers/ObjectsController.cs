@@ -51,8 +51,10 @@ namespace Accessories.Controllers
             ViewBag.col = col;
             return View();
         }
-        public IActionResult Complete(string name, int price, string about, int col)
+        public ActionResult Complete(int col, string name, int price, string about, int category_id, int att_id, string att_name)
             {
+            Objects objects= new Objects();
+            objects.AddObjects(name,price,about,category_id, att_id, att_name);
             ViewBag.Col = col;
             return View();
         }

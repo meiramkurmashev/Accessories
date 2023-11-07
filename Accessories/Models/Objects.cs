@@ -42,5 +42,25 @@ GROUP BY objects.name";
             conn.Close();
 
         }
+        public void AddObjects(string name, int price, string about, int category_id, int att_id, string att_name)
+        {
+
+
+            MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
+            // устанавливаем соединение с БД
+            conn.Open();
+            // запрос
+            string sql = @"INSERT INTO OBJECTS(CATEGORY_ID, NAME, PRICE, ABOUT, ATTRIBUTE_ID, ATTRIBUTE_NAME) 
+                            VALUES('" + category_id + "','" + name + "','" + price + "','" + about + "','" + att_id + "','" + att_name + "')";
+            // объект для выполнения SQL-запроса
+            MySql.Data.MySqlClient.MySqlCommand command = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+            // выполняем запрос и получаем ответ
+            command.ExecuteReader();
+
+
+
+            conn.Close();
+
+        }
     }
 }

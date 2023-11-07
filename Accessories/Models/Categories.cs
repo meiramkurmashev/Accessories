@@ -136,5 +136,24 @@ namespace Accessories.Models
             conn.Close();
 
         }
+        public void AddObject(string name)
+        {
+
+
+            MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
+            // устанавливаем соединение с БД
+            conn.Open();
+            // запрос
+            string sql = @"INSERT INTO CATEGORIES(NAME) VALUES('" + name + "')";
+            // объект для выполнения SQL-запроса
+            MySql.Data.MySqlClient.MySqlCommand command = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+            // выполняем запрос и получаем ответ
+            command.ExecuteReader();
+
+
+
+            conn.Close();
+
+        }
     }
 }
