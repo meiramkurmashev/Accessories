@@ -29,7 +29,7 @@
 </head>
 <body>
 
-    <h1>Аттрибуты категории</h1>
+    <h1>Удаление аттрибута категории</h1>
 
 
 
@@ -43,7 +43,7 @@
         @foreach (var wag in ViewBag.listAttributes)
         {
             <tr style=" height: 85px; text-decoration: none; ">
-                <td><a style="text-decoration: none; color:black" class="link" href="/Attributes/ChangeAtt?id=@wag.Id" id=@wag.Id>@wag.Name</a></td>
+                <td><a style="text-decoration: none; color:black" class="link" id=@wag.Id>@wag.Name</a></td>
 
             </tr>
 
@@ -55,9 +55,9 @@
     <br />
 
 
-    
 
-    <button type="submit" value="" onclick="location.href='/Attributes/Add?cat_id=@ViewBag.Id'">Добавить аттрибут</button>
-    
+
+    <button type="submit" value="" onclick="location.href='/Attributes/Delete?id=@ViewBag.Id'">Удалить аттрибут</button>
+
 </body>
 </html>
